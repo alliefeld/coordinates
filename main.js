@@ -7,7 +7,7 @@
 
 const message = document.getElementById('message');
 const button = document.getElementById('getNewLocation');
-button.addEventListener("click", navigator.geolocation.getCurrentPosition(onSuccess, onError));
+button.addEventListener("mousedown", navigator.geolocation.getCurrentPosition(onSuccess, onError));
 
 
 
@@ -20,7 +20,7 @@ function onSuccess(position) {
 
     // message.classList.add('success');
     // message.innerText = `Your location: (${latitude},${longitude})`;
-    message.innerText = `hi`;
+    message.innerHTML = `hi`;
 }
 
 function onError() {
