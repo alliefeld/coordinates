@@ -3,10 +3,15 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <script type="module" src="main.js"></script>
+        <script src="main.js"></script>
     </head>
     <body>
         <p id="message"></p>
-        <button id="getNewLocation"></button>
+        <button onclick="navigator.geolocation.getCurrentPosition(getNewCoords);" id="getNewLocation">Get New Location!</button>
+        <p id="currentLocation"></p>
+        <p>You are Going:</p>
+        <p id="NSDistance"></p>
+        <p id="EWDistance"></p>
+        <p id="newLocation"></p>
     </body>
 </html>

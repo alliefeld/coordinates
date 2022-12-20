@@ -5,9 +5,8 @@
 // console.log(getLocation());
 // let location = navigator.geolocation.getCurrentPosition();
 
-const message = document.getElementById('message');
-const button = document.getElementById('getNewLocation');
-button.addEventListener("mousedown", navigator.geolocation.getCurrentPosition(onSuccess, onError));
+// const message = document.getElementById('message');
+// document.getElementById("getNewLocation").addEventListener("click", navigator.geolocation.getCurrentPosition(getNewCoords));
 
 
 
@@ -31,5 +30,35 @@ function onError() {
 // 69 miles in 1 degree of lat
 
 function getNewCoords(position) {
-    
+    const {
+        latitude,
+        longitude
+    } = position.coords;
+    console.log(longitude);
+    const currentLocation = document.getElementById("currentLocation");
+    currentLocation.innerHTML = `Current Location: (${latitude}, ${longitude})`;
+    const NSDistance = ((Math.floor(Math.random() * 5000) / 1000) - 2.5).toFixed(3);
+    const NSDistance_p = document.getElementById("NSDistance")
+    if (NSDistance >= 0) {
+        NSDistance_p.innerHTML = `${NSDistance} mile(s) North`;
+    }
+    else {
+        NSDistance_p.innerHTML = `${NSDistance} mile(s) South`;
+    }
+    const EWDistance = ((Math.floor(Math.random() * 1000) / 1000) - 0.5).toFixed(3);
+    const EWDistance_p = document.getElementById("EWDistance")
+    if (EWDistance >= 0) {
+        EWDistance_p.innerHTML = `${EWDistance} mile(s) East`;
+    }
+    else {
+        EWDistance_p.innerHTML = `${EWDistance} mile(s) West`;
+    }
+    const dlat = NSDistance * (1/69);
+    const dlong = EWDistance * (1/54.6);
+
+    const newLat = latitude + dlat;
+    const newLong = longitude + dlong;
+
+    // 2 miles x 1 degree
+    //    1        69 miles
 }
