@@ -46,7 +46,7 @@ function getNewCoords(position) {
         NSDistance_p.innerHTML = `${NSDistance * -1} mile(s) South`;
     }
     console.log("test");
-    const EWDistance = ((Math.floor(Math.random() * 1000) / 1000) - 0.5).toFixed(3);
+    const EWDistance = ((Math.floor(Math.random() * 2000) / 1000) - 1).toFixed(3);
     const EWDistance_p = document.getElementById("EWDistance");
     
     if (EWDistance >= 0) {
