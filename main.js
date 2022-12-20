@@ -36,7 +36,7 @@ function getNewCoords(position) {
     } = position.coords;
     console.log(longitude);
     const currentLocation = document.getElementById("currentLocation");
-    currentLocation.innerHTML = `Current Location: (${latitude}, ${longitude})`;
+    currentLocation.innerHTML = `Current Location: (${latitude.toFixed(5)}, ${longitude.toFixed(5)})`;
     const NSDistance = ((Math.floor(Math.random() * 5000) / 1000) - 2.5).toFixed(3);
     const NSDistance_p = document.getElementById("NSDistance")
     if (NSDistance >= 0) {
@@ -58,6 +58,16 @@ function getNewCoords(position) {
 
     const newLat = latitude + dlat;
     const newLong = longitude + dlong;
+
+    const newLocation = document.getElementById("newLocation");
+    newLocation.innerHTML = `New Location: (${newLat.toFixed(5)}, ${newLong.toFixed(5)})`;
+
+    const URL = `https://maps.google.com/?q=${newLat},${newLong}`;
+
+    const mapURL = document.getElementById("mapURL");
+    mapURL.innerText = URL;
+    mapURL.setAttribute("href", URL)
+  
 
     // 2 miles x 1 degree
     //    1        69 miles
