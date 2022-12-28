@@ -37,7 +37,7 @@ function getNewCoords(position) {
     console.log(longitude);
     const currentLocation = document.getElementById("currentLocation");
     currentLocation.innerHTML = `Current Location: (${latitude.toFixed(5)}, ${longitude.toFixed(5)})`;
-    const NSDistance = ((Math.floor(Math.random() * 4000) / 1000) - 2).toFixed(3);
+    const NSDistance = ((Math.floor(Math.random() * 10000) / 1000) - 5).toFixed(3);
     const NSDistance_p = document.getElementById("NSDistance")
     if (NSDistance >= 0) {
         NSDistance_p.innerHTML = `${NSDistance} mile(s) North`;
@@ -46,7 +46,7 @@ function getNewCoords(position) {
         NSDistance_p.innerHTML = `${NSDistance * -1} mile(s) South`;
     }
     console.log("test");
-    const EWDistance = ((Math.floor(Math.random() * 1000) / 1000) - 0.5).toFixed(3);
+    const EWDistance = ((Math.floor(Math.random() * 6000) / 1000) - 3).toFixed(3);
     const EWDistance_p = document.getElementById("EWDistance");
     
     if (EWDistance >= 0) {
@@ -72,6 +72,3 @@ function getNewCoords(position) {
     mapURL.setAttribute("href", URL);
   
 
-    // 2 miles x 1 degree
-    //    1        69 miles
-}
